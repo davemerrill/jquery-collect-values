@@ -1,5 +1,6 @@
 /**
-* $().collectValues: returns an object with the effective values of all applicable fields within the container(s) in the matched set
+* $().collectValues:
+*		returns an object containing the effective values of requested fields within the containers and/or fields in the matched set
 *		items in the matched set can also be fields themselves
 *
 * @param options obj
