@@ -8,7 +8,7 @@ A jQuery plug-in that returns an object containing the current values of request
 Demo and more details to come. For now, there are pretty complete docs in the plug-in source.
 
 License:
-	jquery-collectValues is open source software by Dave Merrill
-	Licensed under the MIT License. (See LICENSE.txt)
+    jquery-collectValues is open source software by Dave Merrill
+    Licensed under the MIT License. (See LICENSE.txt)
 
-Minified using the Google Clousure Compiler.
+Minified with the Google Closure Compiler.
