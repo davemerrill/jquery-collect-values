@@ -2,7 +2,8 @@
 * $().collectValues:
 *		returns a javascript object with the current values of requested fields within the containers in the matched set
 *		items in the matched set can also be fields themselves
-*		by Dave Merrill, https://github.com/davemerrill/jquery-collect-values, MIT licensed
+*
+*	Copyright (c) 2012 Dave Merrill, https://github.com/davemerrill/jquery-collect-values, MIT license
 *
 *	@param options obj
 *		all options are optional
@@ -33,7 +34,7 @@
 *			string to add to the start of the element's id or name to get the field name used in the returned data
 *
 *		case sensitivity of options
-*			skip, multiCheckboxes, valueCheckboxes, noTrimFields, and nameStripRegex are NOT case sensitive
+*			skip, multiCheckboxes, valueCheckboxes, noTrimFields, intFields, and nameStripRegex are NOT case sensitive
 *			all other options are
 *
 *	@return obj: an object keyed by the id or name of the found elements, whose value is the value of that item
@@ -42,7 +43,7 @@
 *			for radios and checkboxes, name is used if it exists, or id if it doesn't
 *			that priority is reversed for all other element types
 *			fields with no name or id are silently skipped, as are radios with no name
-*			the first letter of the name is lowercased, field or argument-name style
+*			the first letter of the name is lowercased, field- or argument-name style
 *		returned values
 *			all items except checkboxes return a string
 *			checkboxes listed in multiCheckboxes are assumed multiple, and return an array of values of the checked ones
@@ -125,7 +126,7 @@
 								$nameFields.each(function(index, field)
 								{
 									if (field.checked)
-										values[values.length] = field.value;
+										values[values.length] = (intFields.indexOf(fieldNameLC) >= 0) ? parseInt(field.value, 10) : field.value;
 								});
 								data[fieldName] = values;
 							}
@@ -143,7 +144,7 @@
 						data[fieldName] = $field.val().trim();
 						$field.val(data[fieldName]);
 					}
-					if (data[fieldName] !== undefined && intFields.indexOf(fieldNameLC) >= 0)
+					if (data[fieldName] !== undefined && typeof data[fieldName] === 'string' && intFields.indexOf(fieldNameLC) >= 0)
 						data[fieldName] =  parseInt(data[fieldName], 10);
 				}
 			});
@@ -151,8 +152,6 @@
 		return data;
 	};
 })(jQuery);
-
-$.fn.collectValues.version = '0.1';
 
 $.fn.collectValues.defaultOptions =
 {
@@ -176,3 +175,5 @@ $.fn.collectValues.setDefaultOptions = function(options)
 		options
 	);
 };
+
+$.fn.collectValues.version = '0.1.1';
