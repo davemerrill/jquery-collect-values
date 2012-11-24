@@ -1,0 +1,25 @@
+{
+	"name": "collect-values",
+	"version": "0.1.1",
+	"title": "jQuery.collectValues()",
+	"author": { "name": "Dave Merrill", "url": "https://github.com/davemerrill/" },
+	"licenses":
+		[
+			{
+				"type": "MIT",
+				"url": "https://github.com/davemerrill/jquery-collect-values/LICENSE.txt"
+			}
+		],
+	"dependencies": { "jquery": ">=1.6" },
+	"description": "returns an object containing the effective values of requested fields within the containers and/or fields in the matched set",
+	"keywords":
+		[
+			"form",
+			"values"
+		],
+	"homepage": "https://github.com/davemerrill/jquery-collect-values",
+	"maintainers":
+		[
+			{ "name": "Dave Merrill", "url": "https://github.com/davemerrill/" }
+		]
+}
